@@ -1,0 +1,24 @@
+data:
+  raw_path: "data/raw/telco_churn.csv"
+  processed_path: "data/processed/telco_churn_clean.csv"
+  target_column: "Churn"
+  id_column: "customerID"
+
+split:
+  test_size: 0.2
+  random_state: 42
+
+model:
+  type: "random_forest" # random_forest | logisticgit push_regression
+  random_forest:
+    n_estimators: 200
+    max_depth: 8
+    random_state: 42
+  logistic_regression:
+    max_iter: 1000
+    random_state: 42
+  save_path: "models/churn_model.joblib"
+
+api:
+  host: "0.0.0.0"
+  port: 8000

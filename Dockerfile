@@ -14,6 +14,8 @@ RUN uv pip install --system .
 COPY config ./config
 COPY models ./models
 
+ENV PROJECT_ROOT=/app
+
 EXPOSE 8000
 
 CMD ["uvicorn", "churn_predictor.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

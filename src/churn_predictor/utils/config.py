@@ -1,8 +1,11 @@
 """Small helper to load the project's YAML config from anywhere in the codebase."""
+import os
 from pathlib import Path
 import yaml
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
+# In Docker, the app's real root is always /app (see Dockerfile: WORKDIR /app).
+# Locally, fall back to walking up from this file's location, like before.
+PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", Path(__file__).resolve().parents[3]))
 CONFIG_PATH = PROJECT_ROOT / "config" / "config.yaml"
 
 

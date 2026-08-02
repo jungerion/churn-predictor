@@ -10,6 +10,7 @@ split:
 
 model:
   type: "random_forest" # random_forest | logisticgit push_regression
+  # type: "logistic_regression"
   random_forest:
     n_estimators: 200
     max_depth: 8
